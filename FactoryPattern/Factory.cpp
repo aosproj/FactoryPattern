@@ -1,11 +1,13 @@
 #include <iostream>
 
+/*Abstract Product */
 class Button
 {
 public:
 	virtual void createButton() = 0;
 };
 
+/*Concrete Product */
 class AndroidOS :public Button
 {
 public:
@@ -15,6 +17,7 @@ public:
 	}
 };
 
+/*Concrete Product */
 class iOS :public Button
 {
 public:
@@ -24,6 +27,7 @@ public:
 	}
 };
 
+/*Concrete Product */
 class Win :public Button
 {
 public:
@@ -33,6 +37,7 @@ public:
 	}
 };
 
+/* Factory */
 class Factory
 {
 public:
@@ -42,6 +47,7 @@ public:
 	}
 };
 
+/* Derived Factory*/
 template<class OS>
 class ButtonCreator :public Factory
 {
