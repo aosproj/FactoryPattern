@@ -48,13 +48,20 @@ public:
 };
 
 /* Derived Factory*/
-template<class OS>
+template<typename OS>
 class ButtonCreator :public Factory
 {
+private:
+	bool typecheck;
 public:
+	ButtonCreator() :typecheck(false) {}
 	Button* chooseOSButton()
 	{
-		return new OS;
+		typecheck = (std::is_same<OS, Win>::value || std::is_same<OS, iOS>::value || std::is_same<OS, AndroidOS>::value);
+		if (typecheck)
+		{
+			return new OS;
+		}
 	}
 };
 
