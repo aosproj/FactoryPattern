@@ -95,4 +95,5 @@ int main()
 	SimplePizzaFactory *factory = new SimplePizzaFactory();
 	PizzaStore *pstore = new PizzaStore(factory);
 	pstore->createPizza("CheesePizza");
+	return 0;
 }
