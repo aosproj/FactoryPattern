@@ -1,3 +1,4 @@
+#if 0
 #include <iostream>
 
 /*Abstract Product */
@@ -37,6 +38,7 @@ public:
 	}
 };
 
+
 /* Factory */
 class Factory
 {
@@ -62,6 +64,10 @@ public:
 		{
 			return new OS;
 		}
+		else
+		{
+			return nullptr;
+		}
 	}
 };
 
@@ -69,16 +75,23 @@ int main()
 {
 	Button *buttonobj;
 	Factory *obj = new ButtonCreator<Win>;
-	buttonobj = obj->chooseOSButton();
-	buttonobj->createButton();
-
+	if (obj)
+	{
+		buttonobj = obj->chooseOSButton();
+		buttonobj->createButton();
+	}
 	obj = new ButtonCreator<iOS>;
-	buttonobj = obj->chooseOSButton();
-	buttonobj->createButton();
-
+	if (obj)
+	{
+		buttonobj = obj->chooseOSButton();
+		buttonobj->createButton();
+	}
 	obj = new ButtonCreator<AndroidOS>;
-	buttonobj = obj->chooseOSButton();
-	buttonobj->createButton();
-
+	if (obj)
+	{
+		buttonobj = obj->chooseOSButton();
+		buttonobj->createButton();
+	}
 	return 0;
 }
+#endif // 0
